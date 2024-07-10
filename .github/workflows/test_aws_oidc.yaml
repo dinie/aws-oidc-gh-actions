@@ -1,0 +1,31 @@
+name: Deployment to test AWS OIDC trust
+
+on:
+  workflow_dispatch:
+    inputs:
+      roleArn:
+        description: 'ARN of the role created by terraform script'
+        required: true
+        type: string
+
+jobs:
+  deploy-sample:
+    name: 'Sample deploy - auth'
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: ${{ inputs.roleArn }}
+          role-session-name: samplerolesession
+          aws-region: ap-southeast-2
+
+      - name: Print logged in details
+        run: |
+          aws sts get-caller-identity
