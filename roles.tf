@@ -25,6 +25,16 @@ data "aws_iam_policy_document" "sceptre_policy" {
       "cloudformation:DescribeChangeSet",
       "cloudformation:ExecuteChangeSet",
       "cloudformation:ListChangeSets",
+      "iam:GetRole",
+      "iam:DeleteRole",
+      "iam:CreateRole",
+      "iam:PutRolePolicy",
+      "iam:AttachRolePolicy",
+      "iam:DetachRolePolicy",
+      "iam:DeleteRolePolicy",
+      "iam:UpdateAssumeRolePolicy",
+      "iam:ListRolePolicies",
+      "iam:GetRolePolicy"
     ]
   }
 }
