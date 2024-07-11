@@ -19,12 +19,12 @@ variable "github_orgs" {
   default = {
     "IACPractice" = {
       "orgname" = "dinie",
-      "repos"   = ["aws-sceptre", "aws-oidc-gh-actions"]
+      "repos"   = ["aws-sample-spa", "aws-oidc-gh-actions"]
     }
   }
 }
 
 variable "projects" {
   type    = list(string)
-  default = ["aws-sceptre", "aws-oidc-gh-actions"]
+  default = ["aws-sample-spa", "aws-oidc-gh-actions"]
 }
